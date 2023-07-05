@@ -58,3 +58,5 @@ interface NYTApiResponse {
   num_results: number;
   results: Results;
 }
+
+export type { NYTApiResponse, BuyLink, Results, List, Book }
