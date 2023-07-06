@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { Book, NYTApiResponse } from "./types";
-import BookTableItem from "./components/BookTableItem.vue";
-import PaginatedTable from "./components/PaginatedTable.vue";
+import BookListItem from "./components/BookListItem.vue";
+import BookListHeader from "./components/BookListHeader.vue";
+import PaginatedList from "./components/PaginatedList.vue";
 
 const bestSellingBooks = ref<Book[]>([]);
 
@@ -25,14 +26,17 @@ onMounted(() => {
 <template>
   <main>
     <h1>Most published books of all time</h1>
-    <PaginatedTable :data="bestSellingBooks">
+    <PaginatedList :data="bestSellingBooks">
       <template v-slot:header>
-        <span>title</span>
-        <span>published</span>
-        <span>rank</span>
-        <span>buy on</span>
+        <BookListHeader></BookListHeader>
       </template>
-    </PaginatedTable>
+      <template v-slot:item="itemProps">
+        <BookListItem
+          :book="itemProps.item"
+          :is-highlighted="itemProps.i % 2 === 0"
+        ></BookListItem>
+      </template>
+    </PaginatedList>
   </main>
 </template>
 
