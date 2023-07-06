@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import PaginatedTable from "./components/PaginatedTable.vue";
 import { onMounted, ref } from "vue";
 import { Book, NYTApiResponse } from "./types";
 import BookTableItem from "./components/BookTableItem.vue";
+import PaginatedTable from "./components/PaginatedTable.vue";
 
 const bestSellingBooks = ref<Book[]>([]);
 
@@ -27,14 +27,11 @@ onMounted(() => {
     <h1>Most published books of all time</h1>
     <PaginatedTable :data="bestSellingBooks">
       <template v-slot:header>
-        <tr>
-          <th>title</th>
-          <th>published</th>
-          <th>rank</th>
-          <th>buy on</th>
-        </tr>
+        <span>title</span>
+        <span>published</span>
+        <span>rank</span>
+        <span>buy on</span>
       </template>
-      <BookTableItem></BookTableItem>
     </PaginatedTable>
   </main>
 </template>
