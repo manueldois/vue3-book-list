@@ -25,19 +25,27 @@ onMounted(() => {
 
 <template>
   <main>
-    <h1>Most published books of all time</h1>
-    <PaginatedList :data="bestSellingBooks">
-      <template v-slot:header>
-        <BookListHeader></BookListHeader>
-      </template>
-      <template v-slot:item="itemProps">
-        <BookListItem
-          :book="itemProps.item"
-          :is-highlighted="itemProps.i % 2 === 0"
-        ></BookListItem>
-      </template>
-    </PaginatedList>
+    <article class="most-popular-books">
+      <h2>Most Popular Books Of All Time</h2>
+      <PaginatedList :data="bestSellingBooks">
+        <template v-slot:header>
+          <BookListHeader></BookListHeader>
+        </template>
+        <template v-slot:item="itemProps">
+          <BookListItem
+            :book="itemProps.item"
+            :is-highlighted="itemProps.i % 2 === 0"
+          ></BookListItem>
+        </template>
+      </PaginatedList>
+    </article>
   </main>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss">
+.most-popular-books {
+  h2 {
+    margin-left: 50px;
+  }
+}
+</style>

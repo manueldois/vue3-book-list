@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="header gray-1">
     <span>title</span>
     <span>published</span>
     <span>rank</span>
@@ -15,8 +15,8 @@
   grid-template-columns: 4fr 1fr 1fr 1fr;
   text-align: center;
   text-transform: uppercase;
-  color: gray;
   font-weight: bold;
+  padding: 20px 30px;
 
   > *:nth-child(1) {
     text-align: left;

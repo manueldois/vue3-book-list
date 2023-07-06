@@ -48,7 +48,8 @@ li {
   width: 100%;
   list-style: none;
   cursor: pointer;
-  padding: 5px 0;
+  padding: 10px 30px;
+  border-radius: 5px;
 
   &.highlight {
     background-color: whitesmoke;
@@ -66,7 +67,10 @@ li {
       display: flex;
       img {
         width: 100px;
+        min-height: 160px;
         display: block;
+        object-fit: contain;
+        border-radius: 10px;
       }
 
       div {
@@ -82,7 +86,7 @@ li {
   }
 
   div.drawer {
-    padding: 10px 20px;
+    padding: 0px 20px;
   }
 }
 </style>
