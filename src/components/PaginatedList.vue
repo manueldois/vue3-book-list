@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
+
+import rightArrow from "../assets/icons/arrow-right.svg"
+import leftArrow from "../assets/icons/arrow-left.svg"
+
+
 const props = defineProps({
   data: { type: Array<any>, default: [] },
   pageSize: { type: Number, default: 5 },
@@ -31,11 +36,11 @@ const paginatedData = computed(() =>
     </ul>
     <section class="controls">
       <button :disabled="page <= 1" @click="() => goToPage(page - 1)">
-        <img src="icons/arrow-left.svg" alt="Left" srcset="" />
+        <img :src="leftArrow" alt="Left" srcset="" />
       </button>
       <span class="page"> Page {{ page }} of {{ nPages }} </span>
       <button :disabled="page >= nPages" @click="() => goToPage(page + 1)">
-        <img src="icons/arrow-right.svg" alt="Right" srcset="" />
+        <img :src="rightArrow" alt="Right" srcset="" />
       </button>
     </section>
   </section>
